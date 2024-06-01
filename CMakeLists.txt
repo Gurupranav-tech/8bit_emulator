@@ -9,3 +9,7 @@ file(GLOB source_files CONFIGURE_DEPENDS "./src/*.cpp" "./src/**/*.cpp")
 add_executable(8bit ${source_files})
 
 target_include_directories(8bit PUBLIC "./src/include")
+target_include_directories(8bit PUBLIC "./spdlog/include")
+target_include_directories(8bit PUBLIC "./spdlog")
+
+target_precompile_headers(8bit PUBLIC "./src/include/pch.hpp")
