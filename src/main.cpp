@@ -1,7 +1,10 @@
-#include <logger.hpp>
+#include <pch.hpp>
+#include <computer.hpp>
 
-int main(void) {
-    INFO("Starting Computer ");
-    WARN("Starting Computer ");
-    ERROR("Starting Computer ");
+int main(void)
+{
+    Computer computer;
+    INFO("Starting Computer");
+    WARN("Starting Computer");
+    ERROR("Starting Computer");
 }

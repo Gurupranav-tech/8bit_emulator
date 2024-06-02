@@ -8,5 +8,5 @@
 #include <fstream>
 #include <string>
 #include <string.h>
-
-#include <spdlog/spdlog.h>
+#include <memory>
+#include <logger.hpp>
