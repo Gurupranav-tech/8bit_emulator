@@ -1,5 +1,5 @@
-[submodule "src/spdlog"]
-	path = src/spdlog
+[submodule "spdlog"]
+	path = spdlog
 	url = https://github.com/gabime/spdlog
 [submodule "raylib"]
 	path = raylib
