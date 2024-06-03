@@ -1,6 +1,7 @@
 #include <pch.hpp>
-#include <computer.hpp>
 #include <logger.hpp>
+#include <computer.hpp>
+#include <register.hpp>
 
 Computer::Computer(unsigned int clock_speed)
 {
@@ -23,12 +24,14 @@ Computer::~Computer()
 
 void Computer::execute()
 {
+    Register reg(0, "Register");
+    reg.set_bit(true, 3);
+
     std::function<bool(void)> fn = [&]() -> bool
     {
         if (over)
-        {
             return false;
-        }
+        INFO("Register Value: {}", reg.get_bitdata());
 
         return true;
     };
@@ -54,4 +57,8 @@ void Computer::start()
     };
 
     renderer->start(fn, std::bind(&Computer::set_over, this), &over);
+}
+
+void Computer::clear()
+{
 }

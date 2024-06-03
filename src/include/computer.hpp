@@ -20,6 +20,7 @@ public:
 
     void start();
     void set_over();
+    void clear();
 
     friend std::thread;
 
