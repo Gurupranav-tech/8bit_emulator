@@ -48,7 +48,9 @@ void Computer::set_over()
 void Computer::start()
 {
     INFO("Starting Renderer");
-    std::function<void(void)> fn = [&]() {
+    std::function<void(Renderer *)> fn = [&](Renderer *renderer)
+    {
+        renderer->render_clock(this->clock->get_state());
     };
 
     renderer->start(fn, std::bind(&Computer::set_over, this), &over);
