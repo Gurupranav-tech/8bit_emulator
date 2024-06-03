@@ -3,8 +3,8 @@
 
 int main(void)
 {
-    Computer computer;
     INFO("Starting Computer");
-    WARN("Starting Computer");
-    ERROR("Starting Computer");
+    Computer computer;
+
+    computer.start();
 }
