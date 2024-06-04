@@ -24,14 +24,10 @@ Computer::~Computer()
 
 void Computer::execute()
 {
-    Register reg(0, "Register");
-    reg.set_bit(true, 3);
-
     std::function<bool(void)> fn = [&]() -> bool
     {
         if (over)
             return false;
-        INFO("Register Value: {}", reg.get_bitdata());
 
         return true;
     };
@@ -54,6 +50,8 @@ void Computer::start()
     std::function<void(Renderer *)> fn = [&](Renderer *renderer)
     {
         renderer->render_clock(this->clock->get_state());
+        renderer->render_register(Aregister);
+        renderer->render_register(Bregister, 1);
     };
 
     renderer->start(fn, std::bind(&Computer::set_over, this), &over);

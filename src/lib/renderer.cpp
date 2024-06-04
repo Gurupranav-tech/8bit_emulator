@@ -32,6 +32,20 @@ void Renderer::render_clock(bool state)
     DrawLine(60, 0, 60, 35, WHITE);
 }
 
+void Renderer::render_register(Register reg, int pref)
+{
+    auto name = reg.get_name();
+    auto data = reg.get_bitdata();
+    DrawText(name, WIDTH - 20 * strlen(name), 1 + pref * 50, 20, WHITE);
+    DrawLine(WIDTH - 21 * strlen(name), 0 + pref * 50, WIDTH, 0 + pref * 50, WHITE);
+    DrawLine(WIDTH - 21 * strlen(name), 0 + pref * 50, WIDTH - 21 * strlen(name), 40 + pref * 50, WHITE);
+    for (int i = 0; i < 8; i++)
+    {
+        DrawCircle(WIDTH - 20 * strlen(name) + 21 * i, 29 + pref * 50, 6, data[i] == '1' ? RED : WHITE);
+    }
+    DrawLine(WIDTH - 21 * strlen(name), 40 + pref * 50, WIDTH, 40 + pref * 50, WHITE);
+}
+
 Renderer::~Renderer()
 {
     CloseWindow();

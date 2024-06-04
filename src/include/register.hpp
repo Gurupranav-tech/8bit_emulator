@@ -14,5 +14,6 @@ public:
     std::string get_bitdata() const;
 
     inline unsigned char get_data() const { return data; }
+    inline const char *get_name() const { return name; }
     inline void clear() { data = 0; }
 };
