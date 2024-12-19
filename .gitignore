@@ -71,4 +71,6 @@ _deps
 .history
 .ionide
 
+# Build Directory
+build/
 # End of https://www.toptal.com/developers/gitignore/api/c++,cmake,visualstudiocode
