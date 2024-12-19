@@ -1,7 +1,7 @@
 #include "computer.hpp"
 
 Computer::Computer(uint speed, uint width, uint height)
-    : clock{speed}, renderer{width, height}, status{0}, over{false}
+    : clock{speed}, renderer{width, height}, status{0}, over{false}, registerA{"A Register"}, registerB{"B Register"}, instructionRegister{"Instruction Register"}
 {
     comp_thread = new std::thread([&]()
                                   { this->clock.tick(std::bind(&Computer::exec, this), &this->over); });
@@ -26,11 +26,11 @@ int Computer::start()
 
 void Computer::exec()
 {
-    static uint i = 0;
-    INFO("Computer running. {}", i);
-    i++;
 }
 
 void Computer::render(Renderer &renderer)
 {
+    renderer.render_clock(clock);
+    renderer.render_register(registerA);
+    renderer.render_register(registerB, 1);
 }

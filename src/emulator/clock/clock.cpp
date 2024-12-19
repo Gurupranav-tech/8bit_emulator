@@ -7,7 +7,7 @@ void Clock::tick(std::function<void(void)> fn, bool *over)
 {
     while (!*over)
     {
-
+        state = state ? false : true;
         fn();
         if (speed == 0)
         {

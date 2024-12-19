@@ -8,6 +8,8 @@ add_executable(8bit ${SOURCE_FILES})
 add_subdirectory("vendor/raylib")
 add_subdirectory("vendor/spdlog")
 
+target_precompile_headers(8bit PUBLIC "./src/emulator/config.hpp")
+
 target_include_directories(8bit PUBLIC "./src")
 target_include_directories(8bit PUBLIC "./vendor/raylib/src")
 target_include_directories(8bit PUBLIC "./vendor/spdlog/include")
